@@ -219,7 +219,12 @@ const list = new LinkedList()
 
 list.LastAdd(10)
 list.LastAdd(10)
+list.LastAdd(10)
+list.LastAdd(10)
 list.LastAdd(20)
+list.LastAdd(30)
+list.LastAdd(30)
+list.LastAdd(30)
 list.LastAdd(30)
 list.LastAdd(40)
 

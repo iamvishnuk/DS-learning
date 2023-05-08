@@ -126,6 +126,6 @@ list.addLast(40)
 list.Display()
 console.log("=================")
 
-list.deletePostion(40)
+list.deletePostion(10)
 
 list.Display()

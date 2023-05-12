@@ -1,11 +1,16 @@
-let linearSearch = (arr, target) => {
-    for(let i = 0; i < arr.length; i++){
-        if(arr[i] === target){
-            return i
+let s = ", , , ,        a, eaefa"
+
+let sample = (s)=> {
+    let count = 1
+    if (s.trim().length === 0) {
+        return 0
+    }
+    for (let i = 0; i < s.trim().length; i++) {
+        if (s[i] === " ") {
+            count++
         }
     }
+    return count
 }
 
-let arr = [10,3,5,6,9,2,12,2,4]
-const result = linearSearch(arr, 12)
-console.log("Target found at index = ",result)
+console.log(sample(s))

@@ -1,76 +1,110 @@
-class Node{
-    constructor(value){
+class Node {
+    constructor(value) {
         this.value = value
         this.next = null
-        this.previous = null
+        this.prev = null
     }
 }
 
-class LinkedList{
-    constructor(){
+class LikedList {
+    constructor() {
         this.head = null
         this.tail = null
     }
 
-    addFirst(value){
+    addLast(value) {
         const node = new Node(value)
-        if(!this.head){
+        if (!this.head) {
             this.head = node
             this.tail = node
-        }else{
-            node.next = this.head
-            this.head.previous = node
-            this.head = node
-        }
-    }
-
-    addLast(value){
-        const node = new Node(value)
-        if(!this.head){
-            this.head = node
-            this.tail = node
-        }else{
+        } else {
             this.tail.next = node
             node.previous = this.tail
             this.tail = node
+
+        }
+    }
+
+    FirstDelet() {
+        if (!this.head) {
+            return
+        } else if(this.head === this.tail) {
+            this.head = this.head.next
+            this.head.previous = null
+        }
+    }
+
+    lastDelete(){
+        if(!this.head){
+            return
+        }else if(this.head === this.tail){
+            this.head = null
+            this.tail = null
+        }else{
+            this.tail.previous.next = null
         }
     }
 
     addAtPostionAfter(target,value){
         const node = new Node(value)
-        let temp = this.head
-        while(temp){
-            if(temp.value === target){
-                node.next = temp.next
-                temp.next = node
-                temp.next.previous = node
-                node.previous = temp
+        const curr = this.head
+        while(curr){
+            if(curr.value === target){
+                node.next = curr.next
+                curr.next = node
+                node.previous = curr
+                curr.next.previous = node
                 return
             }
-            temp = temp.next
+            curr = curr.next
         }
     }
 
+    reverse(){
+        let temp = this.tail 
+        while(temp){
+            console.log(temp.value)
+            temp = temp.previous
+        }
+    }
 
-    display(){
+    deletetheTarget(target){
         if(!this.head){
-            console.log("linked list is empty")
+            return
+        }else if(this.head.value === target){
+            this.head = this.head.next
+            this.head.previous = null
+        }else if(this.tail === target){
+            this.tail.previous.next = null
         }else{
             let temp = this.head
             while(temp){
+                
+            }
+        }
+    }
+
+    print() {
+        if (!this.head) {
+            console.log("doubly linked list is empty")
+        } else {
+            let temp = this.head
+            while (temp) {
                 console.log(temp.value)
-                temp = temp.next 
+                temp = temp.next
             }
         }
     }
 
 }
 
-const link = new LinkedList()
-link.addLast(10)
-link.addLast(20)
-link.addLast(30)
-link.addLast(40)
-link.addLast(50)
-link.addAtPostionAfter(50,444)
-link.display()
+
+const list = new LikedList()
+
+list.addLast(10)
+list.addLast(20)
+list.addLast(30)
+// list.addAtPostionAfter(20,222)
+list.print()
+console.log("++++++++++++++++++++++")
+list.reverse()

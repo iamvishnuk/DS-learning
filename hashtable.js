@@ -44,6 +44,7 @@ const sample = new HashTable(100)
 sample.set("name", "vishnu")
 sample.set("age", 22)
 sample.set("placezz", "Kannur")
+sample.get("age")
 
-sample.display()
+// sample.display()
 // console.log(table)

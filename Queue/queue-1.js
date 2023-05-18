@@ -27,13 +27,13 @@ class Queue{
             return
         }
         this.front = this.front.next
-        if(!this.fort) {
+        if(!this.front) {
             this.rear = null
         }
     }
 
     print() {
-        if(!this.fort) {
+        if(!this.front) {
             console.log("Queue is empty")
             return
         }else{
@@ -45,3 +45,16 @@ class Queue{
         }
     }
 }
+
+
+const queue = new Queue()
+
+queue.enqueue(10)
+queue.enqueue(20)
+queue.enqueue(30)
+queue.enqueue(40)
+queue.enqueue(50)
+
+queue.dequeue()
+
+queue.print()

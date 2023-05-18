@@ -7,7 +7,7 @@ class HashTable {
     hash(key) {
         if (typeof key === "string") {
             let total = 0
-            for (let i = 0; i < key.length; i++){
+            for (let i = 0; i < key.length; i++) {
                 total += key.charCodeAt(i)
             }
             return total % this.size
@@ -18,11 +18,11 @@ class HashTable {
     set(key, value) {
         const index = this.hash(key)
         const bucket = this.table[index]
-        if(!bucket) {
+        if (!bucket) {
             this.table[index] = [[key, value]]
         } else {
             const sameKeyItem = bucket.find(item => item[0] === key)
-            if(sameKeyItem) {
+            if (sameKeyItem) {
                 sameKeyItem[1] = value
             } else {
                 bucket.push([key, value])
@@ -33,20 +33,20 @@ class HashTable {
     remove(key) {
         const index = this.hash(key)
         const bucket = this.table[index]
-        if(bucket) {
+        if (bucket) {
             const sameKeyItem = bucket.find(item => item[0] === key)
-            if(sameKeyItem) {
-                bucket.splice(bucket.indexOf(sameKeyItem),1)
+            if (sameKeyItem) {
+                bucket.splice(bucket.indexOf(sameKeyItem), 1)
             }
-        }
+        }   
     }
 
     get(key) {
         const index = this.hash(key)
         const bucket = this.table[index]
-        if(bucket) {
+        if (bucket) {
             const sameKeyItem = bucket.find(item => item[0] === key)
-            if(sameKeyItem) {
+            if (sameKeyItem) {
                 return sameKeyItem[1]
             }
         }
@@ -54,8 +54,8 @@ class HashTable {
     }
 
     print() {
-        for(let i = 0; i < this.table.length; i++) {
-            if(this.table[i]){
+        for (let i = 0; i < this.table.length; i++) {
+            if (this.table[i]) {
                 console.log(i, this.table[i])
             }
         }

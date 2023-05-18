@@ -10,7 +10,6 @@ class Stack{
         this.top = null
         this.size = 0
     }
-
     push(data){
         const node = new Node(data)
         if(!this.top){
@@ -21,7 +20,6 @@ class Stack{
         }
         this.size++
     }
-
     pop() {
         if(!this.top){
             console.log("Stack underflow")
@@ -31,7 +29,6 @@ class Stack{
             return
         }
     }
-
     midDelete() {
         if (!this.top) {
             console.log("Stack is empty")
@@ -48,7 +45,6 @@ class Stack{
             prev.next = prev.next.next
         }
     }
-
     print(){
         if(!this.top){
             console.log("stack is empty")

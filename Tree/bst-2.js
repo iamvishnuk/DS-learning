@@ -136,7 +136,41 @@ class BinarySearchTree {
             root.right = this.deleteNode(root.right, root.value)
         }
 
-        return root
+        return root//
+    }
+
+    isBst(root) {
+        if(root === null) {
+            return true
+        }
+        if(!root.left === null && root.left.value > root.value) {
+            return false
+        }
+        if(!root.right === null && root.right.value < root.value) {
+            return false
+        }
+        if(!this.isBst(root.left) || !this.isBst(root.right)) {
+            return false
+        }
+        return true
+    }
+
+    closestNum(target) {
+        let currentNode = this.root
+        let closest = currentNode.value
+        while(currentNode) {
+            if(Math.abs(target - closest) > Math.abs(target - currentNode.value)){
+                closest = currentNode
+            }
+            if(target < currentNode.value) {
+                currentNode = currentNode.left
+            } else if(target > currentNode.value) {
+                currentNode = currentNode.right
+            } else {
+                break
+            }
+        }
+        return closest
     }
 
 
@@ -144,11 +178,13 @@ class BinarySearchTree {
 
 const bst = new BinarySearchTree()
 
-bst.insert(10)
-bst.insert(5)
-bst.insert(15)
 bst.insert(3)
-bst.insert(16)
+bst.insert(5)
+bst.insert(6)
+bst.insert(35)
+bst.insert(57)
+bst.insert(2)
+bst.insert(34)
 // bst.insert(7)
 
 // console.log(bst.search(bst.root, 10))

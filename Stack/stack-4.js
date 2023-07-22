@@ -1,3 +1,4 @@
+// Implementation of stack using queue
 class Queue {
     constructor() {
         this.stack1 = [];

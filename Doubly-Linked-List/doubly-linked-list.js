@@ -64,10 +64,6 @@ class Linkedlist {
         }
     }
 
-
-
-
-
     addAtPos(pos, value) {
         const node = new Node(value)
         let temp = this.head
@@ -94,10 +90,6 @@ class Linkedlist {
             }
         }
     }
-
-
-
-
 
 
     print() {

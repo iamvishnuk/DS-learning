@@ -1,11 +1,11 @@
-class Node{
-    constructor(data){
+class Node {
+    constructor(data) {
         this.data = data
         this.next = null
     }
 }
 
-class Queue{
+class Queue {
     constructor() {
         this.front = null
         this.rear = null
@@ -13,32 +13,32 @@ class Queue{
 
     enqueue(data) {
         const node = new Node(data)
-        if(!this.front) {
+        if (!this.front) {
             this.front = this.rear = node
-        }else{
+        } else {
             this.rear.next = node
             this.rear = node
         }
     }
 
     dequeue() {
-        if(!this.front){
+        if (!this.front) {
             console.log("queue is empty")
             return
         }
         this.front = this.front.next
-        if(!this.front) {
+        if (!this.front) {
             this.rear = null
         }
     }
 
     print() {
-        if(!this.front) {
+        if (!this.front) {
             console.log("Queue is empty")
             return
-        }else{
+        } else {
             let temp = this.front
-            while(temp) {
+            while (temp) {
                 console.log(temp.data)
                 temp = temp.next
             }

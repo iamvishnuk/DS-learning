@@ -79,6 +79,5 @@ gp.insert(4, 66, true)
 gp.insert(1, 44, true)
 gp.display()
 console.log("===========")
-4
 gp.delete(1)
 gp.display();

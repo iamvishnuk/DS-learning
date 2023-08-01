@@ -13,7 +13,7 @@ class Heap {
         }
 
     }
-    
+    // used for shift down the large value
     shiftDown(currenIndex) {
         let endIndex = this.heap.length - 1
         let leftIndex = this.leftChild(currenIndex)
@@ -35,7 +35,7 @@ class Heap {
             }
         }
     }
-
+    // used for shift uping the small value
     shiftUp(currentIndex) {
         let parentIndex = this.parent(currentIndex)
         while (currentIndex > 0 && this.heap[currentIndex] < this.heap[parentIndex]) {
@@ -46,18 +46,18 @@ class Heap {
     }
 
     remove() {
-        [this.heap[0],this.heap[this.heap.length - 1]] = [this.heap[this.heap.length - 1],this.heap[0]]
+        [this.heap[0], this.heap[this.heap.length - 1]] = [this.heap[this.heap.length - 1], this.heap[0]]
         this.heap.pop()
         this.shiftDown(0)
     }
 
     insert(value) {
-        this.heap.push(value) 
+        this.heap.push(value)
         this.shiftUp(this.heap.length - 1)
     }
 
     sort() {
-        for(let i = this.heap.length - 1; i >= 0; i--){
+        for (let i = this.heap.length - 1; i >= 0; i--) {
             this.sorting(i)
         }
     }
@@ -66,6 +66,14 @@ class Heap {
         console.log(this.heap[current])
         this.heap.pop()
         this.shiftDown(0)
+    }
+
+    removeValue(value) {
+        const indexToRemove = this.heap.findIndex(val => val == value)
+        if (indexToRemove === -1) return
+        [this.heap[indexToRemove], this.heap[this.heap.length - 1]] = [this.heap[this.heap.length - 1], this.heap[indexToRemove]]
+        this.heap.pop()
+        this.shiftDown(indexToRemove)
     }
 
     display() {
@@ -88,7 +96,7 @@ class Heap {
 }
 
 
-const arr = [10,9,8,7,6,5]
+const arr = [10, 9, 8, 7, 6, 5]
 
 const heap = new Heap(arr)
 // heap.insert(4)
@@ -96,6 +104,6 @@ const heap = new Heap(arr)
 // heap.insert(2)
 // heap.insert(1)
 heap.remove()
-heap.display()
+// heap.display()
 heap.sort()
 // heap.display()

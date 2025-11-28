@@ -1,0 +1,27 @@
+{
+  "name": "ds-learning",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamvishnuk/DS-learning.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/iamvishnuk/DS-learning/issues"
+  },
+  "homepage": "https://github.com/iamvishnuk/DS-learning#readme",
+  "devDependencies": {
+    "prettier": "^3.7.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.14"
+  }
+}

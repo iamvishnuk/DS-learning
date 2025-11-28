@@ -6,17 +6,17 @@
  */
 
 const cyclicSort = (arr) => {
-    let i = 0;
-    while (i < arr.length) {
-        let correctIndex = arr[i] - 1;
-        if (arr[i] !== arr[correctIndex]) {
-            let temp = arr[i];
-            arr[i] = arr[correctIndex];
-            arr[correctIndex] = temp;
-        } else {
-            i++;
-        }
+  let i = 0;
+  while (i < arr.length) {
+    let correctIndex = arr[i] - 1;
+    if (arr[i] !== arr[correctIndex]) {
+      let temp = arr[i];
+      arr[i] = arr[correctIndex];
+      arr[correctIndex] = temp;
+    } else {
+      i++;
     }
+  }
 };
 const arr = [5, 3, 1, 4, 2];
 cyclicSort(arr);

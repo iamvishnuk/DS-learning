@@ -1,8 +1,4 @@
-type BinaryNode<T> = {
-  value: T;
-  left: BinaryNode<T> | null;
-  right: BinaryNode<T> | null;
-};
+import { BinaryNode } from '../../types';
 
 const search = (curr: BinaryNode<number> | null, path: number[]): number[] => {
   if (!curr) {

@@ -1,4 +1,4 @@
-import { BinaryNode } from '../../typescript/Tree/PreOrderSearch';
+import { BinaryNode } from '../../types';
 
 export const tree: BinaryNode<number> = {
   value: 20,

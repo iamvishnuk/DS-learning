@@ -6,7 +6,7 @@ export const findMode = (root: TreeNode | null): number[] => {
   let mode: number[] = [];
   let maxCount = 0;
   let count = 0;
-  let prev = -1;
+  let prev: null | number = null;
 
   const inOrder = (node: TreeNode | null) => {
     if (node === null) {
@@ -15,7 +15,7 @@ export const findMode = (root: TreeNode | null): number[] => {
 
     inOrder(node.left);
 
-    if (prev === -1) {
+    if (prev === null) {
       prev = node.val;
       count = 1;
     } else if (prev === node.val) {

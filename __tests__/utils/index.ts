@@ -36,3 +36,29 @@ export const buildTreeFromArray = (
 
   return nodes[0];
 };
+
+export const buildBSTFromArray = (
+  arr: Array<number | null>
+): TreeNode | null => {
+  let root: TreeNode | null = null;
+
+  const insert = (node: TreeNode | null, val: number): TreeNode => {
+    if (node === null) return new TreeNode(val);
+
+    if (val <= node.val) {
+      node.left = insert(node.left, val);
+    } else {
+      node.right = insert(node.right, val);
+    }
+
+    return node;
+  };
+
+  for (const val of arr) {
+    if (val !== null) {
+      root = insert(root, val);
+    }
+  }
+
+  return root;
+};

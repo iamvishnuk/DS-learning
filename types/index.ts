@@ -16,6 +16,15 @@ export class TreeNode {
   }
 }
 
+export class ListNode {
+  val: number;
+  next: ListNode | null;
+  constructor(val?: number, next?: ListNode | null) {
+    this.val = val === undefined ? 0 : val;
+    this.next = next === undefined ? null : next;
+  }
+}
+
 export type GraphEdge = { to: number; weight: number };
 export type WeightedAdjacencyList = GraphEdge[][];
 export type WeightedAdjacencyMatrix = number[][]; // A number means weight

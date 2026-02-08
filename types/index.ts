@@ -28,3 +28,13 @@ export class ListNode {
 export type GraphEdge = { to: number; weight: number };
 export type WeightedAdjacencyList = GraphEdge[][];
 export type WeightedAdjacencyMatrix = number[][]; // A number means weight
+
+export class _Node {
+  val: number;
+  children: _Node[];
+
+  constructor(val?: number, children?: _Node[]) {
+    this.val = val === undefined ? 0 : val;
+    this.children = children === undefined ? [] : children;
+  }
+}

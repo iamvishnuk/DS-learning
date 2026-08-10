@@ -32,3 +32,46 @@ function earliestFinishTime(
 
   return res;
 }
+
+function earliestFinishTime1(
+  landStartTime: number[],
+  landDuration: number[],
+  waterStartTime: number[],
+  waterDuration: number[]
+): number {
+  let earliestLandFinish = Infinity;
+
+  for (let i = 0; i < landStartTime.length; i++) {
+    const finish = landStartTime[i] + landDuration[i];
+
+    earliestLandFinish = Math.min(earliestLandFinish, finish);
+  }
+
+  let landThenWater = Infinity;
+
+  for (let i = 0; i < waterStartTime.length; i++) {
+    const finish =
+      Math.max(earliestLandFinish, waterStartTime[i]) + waterDuration[i];
+
+    landThenWater = Math.min(landThenWater, finish);
+  }
+
+  let earliestWaterFinish = Infinity;
+
+  for (let i = 0; i < waterStartTime.length; i++) {
+    const finish = waterStartTime[i] + waterDuration[i];
+
+    earliestWaterFinish = Math.min(earliestWaterFinish, finish);
+  }
+
+  let waterThenLand = Infinity;
+
+  for (let i = 0; i < landStartTime.length; i++) {
+    const finish =
+      Math.max(earliestWaterFinish, landStartTime[i]) + landDuration[i];
+
+    waterThenLand = Math.min(waterThenLand, finish);
+  }
+
+  return Math.min(landThenWater, waterThenLand);
+}
